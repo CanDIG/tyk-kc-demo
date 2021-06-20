@@ -21,8 +21,7 @@
     "not_versioned": true,
     "versions": {
       "Default": {
-        "name": "Default",
-        "use_extended_paths": true
+        "name": "Default"
     }
    }
   },
