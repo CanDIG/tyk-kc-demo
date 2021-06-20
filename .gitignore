@@ -1,0 +1,6 @@
+*~
+*.out
+*.crt
+*.key
+*.srl
+*.csr

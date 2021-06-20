@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euo pipefail
+
+for file in config.sh oidc/setup_keycloak_{realm,users}.sh
+do
+    docker cp ${file} oidc:/opt/jboss/$( basename ${file} )
+done
+
+docker exec oidc /opt/jboss/setup_keycloak_realm.sh > config.out
+docker-compose restart oidc
+sleep 15
+docker exec oidc /opt/jboss/setup_keycloak_users.sh >> config.out

@@ -1,0 +1,36 @@
+{
+  "name": "KC plus httpbin API",
+  "slug": "kc-httpbin",
+  "api_id": "2",
+  "org_id": "gateway_demo",
+
+  "use_openid": true,
+  "openid_options": {
+    "providers": [
+      {
+        "issuer": "http://oidc:8080/auth/realms/mockrealm",
+        "client_ids": {
+          "bW9ja19nYXRld2F5X2NsaWVudA==": "authn_gateway"
+        }
+      }
+    ],
+    "segregate_by_client": false
+  },
+
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "Default": {
+        "name": "Default",
+        "use_extended_paths": true
+    }
+   }
+  },
+
+  "proxy": {
+    "listen_path": "/test-api/",
+    "target_url": "http://httpbin.org",
+    "strip_listen_path": true
+  },
+  "active": true
+}

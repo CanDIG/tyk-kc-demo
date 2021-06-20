@@ -1,0 +1,10 @@
+{
+    "authn_gateway": {
+        "active": true,
+        "name": "default gateway policy",
+        "rate": 10000,
+        "per": 1,
+        "quota_max": 1000000,
+        "org_id": "gateway_demo"
+    }
+}

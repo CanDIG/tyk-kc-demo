@@ -1,0 +1,30 @@
+version: '3'
+services:
+  oidc:
+    container_name: oidc
+    image: jboss/keycloak
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      KEYCLOAK_USER: kcadmin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_PASSWORD: admin
+
+  tyk:
+    container_name: tyk
+    image: tykio/tyk-gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - tyk-redis
+    volumes:
+      - ./tyk/apps:/opt/tyk-gateway/apps
+      - ./tyk/tyk.conf:/opt/tyk-gateway/tyk.conf
+      - ./tyk/policies:/opt/tyk-gateway/policies
+
+  tyk-redis:
+    container_name: tyk-redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
