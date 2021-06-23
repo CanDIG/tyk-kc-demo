@@ -32,10 +32,10 @@ curl http://tyk:8000/test-api/get
 }
 ```
 
-You might think "hey, that's weird, what key?"  Every session gets a session key, and this one isn't authorized
+You might think "Hey, that's weird, what key?"  Every session gets a session key, and this one isn't authorized
 you possibly malicious internet user, you.
 
-If you dp have a token, however, all works.  Here we're getting one by using the client credentials flow which
+If you _do_ have a token, however, all works.  Here we're getting one by using the client credentials flow which
 isn't how we'd actually get the token, but:
 
 ```
