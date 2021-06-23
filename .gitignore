@@ -4,3 +4,5 @@
 *.key
 *.srl
 *.csr
+.DS_Store
+.vscode
