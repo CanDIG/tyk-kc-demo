@@ -60,3 +60,8 @@ Note a few things here:
 * Those that will do that dance for you all have pretty hardcoded assumptions that there is exactly one ID provider.
 * Tyk Identity Broker's job is to handle auth _for Tyk itself_, like to the dashboard or the developer portal (neither of which are part of the open source release of Tyk).
 * Tyk does have OAuth2 handling but that doesn't do the dance, it just has Tyk masquerade as the IdP so that IdPs can change behind the scene without effecting the front end.
+* Tyk has "apps" (collections of APIs) and "policies" (policies applied to APIs).  Each access rule for an API has a policy
+    * API and their policies must be from the same organization id
+    * API ids, policy ids, organizaiton ids are just strings
+    * In this example, in the openid providers in [tyk/apps/httpbin.json](tyk/apps/httpbin.json), the line `"client_ids": {"bW9ja19nYXRld2F5X2NsaWVudA==": "authn_gateway"}` gives the base64 encoded client ID, and not the client secret (there is none here!) but the policy that attaches.
+    * In Keycloak we use a bearer-only client for the gateway and a confidential (requires a secret of some sort) client for the actual login.  That's why there's two clients - one for login, one for gateway
