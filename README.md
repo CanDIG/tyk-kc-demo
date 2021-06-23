@@ -1,7 +1,7 @@
 # tyk-kc-demo
 
 This is a super simple demo showing how to use [Tyk](https://tyk.io) to protect an API (here just https://httpbin.org),
-blocking requests as unauthorized unless accompanied by an OIDC token from a Keycloak instance.
+blocking requests as unauthorized unless accompanied by an validly signed ID token from a [Keycloak](https://www.keycloak.org/documentation) instance.
 
 For convenience, add the following lines to your `/etc/hosts`:
 
