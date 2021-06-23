@@ -68,3 +68,4 @@ Note a few things here:
     * API ids, policy ids, organizaiton ids are just strings
     * In this example, in the openid providers in [tyk/apps/httpbin.json](tyk/apps/httpbin.json), the line `"client_ids": {"bW9ja19nYXRld2F5X2NsaWVudA==": "authn_gateway"}` gives the base64 encoded client ID, and not the client secret (there is none here!) but the policy that attaches.
     * In Keycloak we use a bearer-only client for the gateway and a confidential (requires a secret of some sort) client for the actual login.  That's why there's two clients - one for login, one for gateway
+* There's a secret in [tyk/tyk.conf](tyk/tyk.conf#L4) - it seems benign but it is **not**.  Everything that can be configured in Tyk with files can be configured via ReST API, which means anyone with that secret can rewrite your API definitions, send confidential tokens anywhere else, etc.  _Rotate your secrets_ and don't use default ones.
