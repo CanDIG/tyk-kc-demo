@@ -1,4 +1,4 @@
-# tyk-kc-demo
+# Tyk Keycloak Demo
 
 This is a super simple demo showing how to use [Tyk](https://tyk.io) to protect an API (here just https://httpbin.org),
 blocking requests as unauthorized unless accompanied by an validly signed ID token from a [Keycloak](https://www.keycloak.org/documentation) instance.
