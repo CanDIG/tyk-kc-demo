@@ -3,6 +3,7 @@
   "slug": "kc-httpbin",
   "api_id": "2",
   "org_id": "gateway_demo",
+  "active": true,
 
   "use_openid": true,
   "openid_options": {
@@ -30,6 +31,5 @@
     "listen_path": "/test-api/",
     "target_url": "http://httpbin.org",
     "strip_listen_path": true
-  },
-  "active": true
+  }
 }

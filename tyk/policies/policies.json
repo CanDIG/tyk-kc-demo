@@ -2,6 +2,9 @@
     "authn_gateway": {
         "active": true,
         "name": "default gateway policy",
-        "org_id": "gateway_demo"
+        "org_id": "gateway_demo",
+        "quota_max": 5,
+        "quota_remaining": 5,
+        "quota_renewal_rate": 60
     }
 }
