@@ -155,7 +155,7 @@ multiple times) we can try this with two different tokens for user1 (and another
 # }
 # Waiting one minute
 
-# Uesr 2 Token 1: 200
+# User 1 Token 1: 200
 # User 1 Token 2: 200
 # User 2: 200
 ```

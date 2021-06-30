@@ -30,7 +30,7 @@ echo ""
 echo "Waiting one minute"
 sleep 60
 echo ""
-echo -n "Uesr 2 Token 1: "
+echo -n "User 1 Token 1: "
 curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer ${TOKEN1}" http://tyk:8000/test-api/get
 echo -n "User 1 Token 2: "
 curl -s -o /dev/null -w "%{http_code}\n" -H "Authorization: Bearer ${TOKEN2}" http://tyk:8000/test-api/get
