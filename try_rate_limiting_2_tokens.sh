@@ -5,7 +5,7 @@ USER1_TOKEN1=$(./oidc/test_scripts/get_token_user1.sh | jq .access_token | tr -d
 USER1_TOKEN2=$(./oidc/test_scripts/get_token_user1.sh | jq .access_token | tr -d \" )
 USER2_TOKEN1=$(./oidc/test_scripts/get_token_user2.sh | jq .access_token | tr -d \" )
 
-if [ "$USER1_TOKEN1" == "$USER1_TOKEN2" ]
+if [[ "$USER1_TOKEN1" == "$USER1_TOKEN2" ]]
 then
   echo "Tokens are the same"
 else
@@ -44,6 +44,6 @@ echo "Waiting one minute"
 sleep 60
 echo ""
 
-api_call ${USER1_TOKEN1} "User 1 Token 1 Retry:" true
+api_call ${USER1_TOKEN1} "User 1 Token 1 Retry: " true
 api_call ${USER1_TOKEN2} "User 1 Token 2 Retry: " true
 api_call ${USER2_TOKEN1} "User 2 Retry: " true
