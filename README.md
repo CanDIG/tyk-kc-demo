@@ -17,8 +17,13 @@ docker-compose up -d
 ```
 
 When keycloak is up and running (when `docker-compose logs oidc` shows `Admin console listening` - you can wait or
-you can run `./oidc/wait_keycloak.sh`), add the users and realm by running `./oidc/config-oidc-service`.  (That
-will take 20 seconds or so).  The keycloak will then be configured with two users (user1 and user2),
+you can run `./oidc/wait_keycloak.sh`), add the users and realm by running 
+
+```bash
+./oidc/config-oidc-service`
+```
+
+(That will take 20 seconds or so).  The keycloak will then be configured with two users (user1 and user2),
 with passwords pass1 and pass2.
 
 Tyk here is configured with exactly one api, `http://tyk:8000/test-api` which just redirects to httpbin.   If you try accessing
