@@ -103,7 +103,7 @@ We can test this with the script [try_rate_limiting.sh](./try_rate_limiting.sh),
 # {
 #     "error": "Quota exceeded"
 # }
-# Waiting one miinute
+# Waiting one minute
 # 200
 ```
 

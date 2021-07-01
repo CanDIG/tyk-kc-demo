@@ -37,7 +37,7 @@ do
     api_call ${USER2_TOKEN1} "User 2 Request ${i}: " true
 done
 api_call ${USER1_TOKEN1} "Full response User 1 Token 1: "
-api_call ${USER1_TOKEN1} "Full response User 1 Token 2: "
+api_call ${USER1_TOKEN2} "Full response User 1 Token 2: "
 
 echo ""
 echo "Waiting one minute"
