@@ -20,7 +20,7 @@ When keycloak is up and running (when `docker-compose logs oidc` shows `Admin co
 you can run `./oidc/wait_keycloak.sh`), add the users and realm by running 
 
 ```bash
-./oidc/config-oidc-service`
+./oidc/config-oidc-service
 ```
 
 (That will take 20 seconds or so).  The keycloak will then be configured with two users (user1 and user2),
