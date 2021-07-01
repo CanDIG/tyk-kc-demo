@@ -67,7 +67,7 @@ Note a few things here:
   * API and their policies must be from the same organization id
   * API ids, policy ids, organizaiton ids are just strings
   * In this example, in the openid providers in [tyk/apps/httpbin.json](tyk/apps/httpbin.json), the line `"client_ids": {"bW9ja19nYXRld2F5X2NsaWVudA==": "authn_gateway"}` gives the base64 encoded client ID, and not the client secret (there is none here!) but the policy that attaches.
-  * In Keycloak we use a bearer-only client for the gateway and a confidential (requires a secret of some sort) client for the actual login.  That's why there's two clients - one for login, one for gateway
+  * In Keycloak we can use a bearer-only client for the gateway - it's only used to match the audience in the JWT.  That's why there's two clients - one for login, one for gateway
 * There's a secret in [tyk/tyk.conf](tyk/tyk.conf#L4) - it seems benign but it is **not**.  Everything that can be configured in Tyk with files can be configured via ReST API, which means anyone with that secret can rewrite your API definitions, send confidential tokens anywhere else, etc.  _Rotate your secrets_ and don't use default ones.
 
 ## Request Quotas
@@ -89,7 +89,7 @@ We can implement request quotas in the [policy](.tyk/policies/policies/.json) we
 
 Here the quota is set to 5 requests every 60 seconds (and we start at the full 5 remaining at the time Tyk starts up).
 We can test this with the script [try_rate_limiting.sh](./try_rate_limiting.sh), which prints the http status codes of
-10 consecutive requests to the API, waits a minute, and then tries again:
+6 consecutive requests to the API, waits a minute, and then tries again:
 
 ```bash
 ./try_rate_limiting.sh
@@ -108,7 +108,8 @@ We can test this with the script [try_rate_limiting.sh](./try_rate_limiting.sh),
 ```
 
 To make sure it works with two different tokens issued to the same user (so can't readily bypass quotas by logging in
-multiple times) we can try this with two different tokens for user1 (and another token again for a second user entirely):
+multiple times) we can try this with two different tokens for user1 (and another token again for a second user entirely),
+as in [try_rate_limiting_2_tokens.sh](./try_rate_limiting_2_tokens.sh):
 
 ```bash
 ./try_rate_limiting_2_tokens.sh
